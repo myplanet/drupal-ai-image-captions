@@ -1,0 +1,5 @@
+image_captioning.admin_form:
+  title: 'Image captioning'
+  parent: system.admin_config_media
+  description: 'Description of link goes here.'
+  route_name: image_captioning.admin_settings_form

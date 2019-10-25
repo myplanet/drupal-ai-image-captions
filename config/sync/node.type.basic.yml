@@ -1,0 +1,11 @@
+uuid: ad64823b-75f3-4bfa-ae97-a85e0852a2eb
+langcode: en
+status: true
+dependencies: {  }
+name: Basic
+type: basic
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

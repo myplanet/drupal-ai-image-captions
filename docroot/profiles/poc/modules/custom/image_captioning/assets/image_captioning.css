@@ -1,0 +1,6 @@
+.ajax-progress-throbber .throbber {
+  padding-left: 20px;
+}
+.ajax-progress-throbber .throbber.hidden {
+  display: none;
+}

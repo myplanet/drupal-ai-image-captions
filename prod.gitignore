@@ -1,0 +1,12 @@
+# Ignore paths that contain user-generated content.
+docroot/files
+docroot/sites/*/files
+docroot/sites/*/private
+acquia-files
+
+# Ignore example or default files
+example.*
+default.*
+
+# Ignore settings.local files
+settings.local.php

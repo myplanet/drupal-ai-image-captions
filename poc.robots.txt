@@ -1,0 +1,8 @@
+#
+# robots.txt
+#
+#
+# Do not allow indexing by robots.
+#
+User-agent: *
+Disallow: /

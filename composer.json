@@ -1,0 +1,90 @@
+{
+  "name": "myplanet/poc-girlsfirst",
+  "description": "poc Install Profile with composer",
+  "authors": [{
+    "name": "Myplanet",
+    "email": "hello@myplanet.com"
+  }],
+  "config": {
+    "secure-http": false
+  },
+  "type": "project",
+  "repositories": [{
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  ],
+  "require": {
+    "composer/installers": "^1.0.20",
+    "drupal-composer/drupal-scaffold": "^2.0.1",
+    "cweagans/composer-patches": "~1.0",
+    "drupal/core": "^8.7",
+    "drupal/console": "@stable",
+    "drupal/admin_toolbar": "1.25"
+  },
+  "require-dev": {
+    "drupal/devel": "^1.2"
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "classmap": [
+      "scripts/composer/ScriptHandler.php",
+      "scripts/poc/ProductionBuild.php",
+      "scripts/poc/NpmPackage.php",
+      "scripts/poc/PostBuild.php"
+    ]
+  },
+  "scripts": {
+    "deploy": [
+      "@composer install --prefer-dist --no-dev",
+      "Drupalpoc\\PostBuild::replaceHtaccess",
+      "Drupalpoc\\PostBuild::replaceRobotsTxt"
+    ],
+    "npm-install": "DrupalPOC\\NpmPackage::npmInstall",
+    "npm-build": "DrupalPOC\\NpmPackage::npmBuild",
+    "npm-run": "DrupalPOC\\NpmPackage::npmRun",
+    "npm-test": "DrupalPOC\\NpmPackage::npmTest",
+    "pre-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "pre-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+    ],
+    "post-install-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+      "@composer npm-install",
+      "@composer npm-build",
+      "@composer npm-run"
+    ],
+    "post-update-cmd": [
+      "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+      "@composer npm-install",
+      "@composer npm-build",
+      "@composer npm-run"
+    ]
+  },
+  "extra": {
+    "installer-paths": {
+      "docroot/core": ["type:drupal-core"],
+      "docroot/profiles/poc/libraries/{$name}": ["type:drupal-library"],
+      "docroot/profiles/poc/modules/contrib/{$name}": ["type:drupal-module"],
+      "docroot/profiles/poc/themes/contrib/{$name}": ["type:drupal-theme"],
+      "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+      "drush/contrib/{$name}": ["type:drupal-drush"],
+      "docroot/modules/npm-packages/{$name}": ["type:npm-package"]
+    },
+    "installer-types": ["npm-package"],
+    "patches": {},
+    "drupal-scaffold": {
+      "excludes": [
+        "web.config",
+        "sites/default/default.settings.php"
+      ]
+    }
+  }
+}

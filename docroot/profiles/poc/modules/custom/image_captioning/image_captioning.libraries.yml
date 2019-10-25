@@ -1,0 +1,11 @@
+image_captioning:
+  css:
+    theme:
+      assets/image_captioning.css: {}
+  js:
+    assets/image_captioning.js: {}
+  dependencies:
+    - core/drupal.ajax
+    - core/jquery
+    - core/jquery.once
+    - core/drupal

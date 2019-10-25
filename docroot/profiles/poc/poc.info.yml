@@ -1,0 +1,10 @@
+name: Drupal AI Image Captioning Demo
+type: profile
+description: 'A skeletor Drupal install profile to set up proof-of-concept for IBM Image Captioning.'
+version: VERSION
+core: 8.x
+dependencies:
+  - node
+themes:
+  - seven
+  - bartik

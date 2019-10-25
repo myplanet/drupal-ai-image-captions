@@ -1,0 +1,28 @@
+module:
+  admin_toolbar: 0
+  admin_toolbar_tools: 0
+  block: 0
+  breakpoint: 0
+  dblog: 0
+  devel: 0
+  field: 0
+  field_ui: 0
+  file: 0
+  filter: 0
+  image: 0
+  image_captioning: 0
+  kint: 0
+  node: 0
+  system: 0
+  text: 0
+  toolbar: 0
+  update: 0
+  user: 0
+  poc: 1000
+theme:
+  stable: 0
+  classy: 0
+  seven: 0
+profile: poc
+_core:
+  default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

@@ -1,0 +1,6 @@
+type: module
+name: Image Captioning
+description: 'Allows Images to have AI generated captions'
+package: Image
+core: 8.x
+configure: image_captioning.admin_settings_form
